@@ -50,8 +50,8 @@ class Moderator(commands.Cog):
         return banWords
 
 
-    groupModerator = discordCommands.SlashCommandGroup("moderator", "Various commands to moderate your server.")
-    groupeBanWords = groupModerator.create_subgroup("banwords", "Manage the ban words list.")
+    groupModerator = discordCommands.SlashCommandGroup("moderator", "🔶 Group of commands to manage the Moderator addon.")
+    groupeBanWords = groupModerator.create_subgroup("banwords", "🔶 Group of commands to manage the ban words list.")
 
     # Verify if the bot has the prerequisites permissions
     @groupModerator.command(name="requirements", description="Check the prerequisites permissions of the addon.")
