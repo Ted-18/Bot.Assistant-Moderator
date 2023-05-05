@@ -1,5 +1,5 @@
 import services.serviceDatabase as serviceDatabase      
-from services.serviceLogger import consoleLogger as Logger
+from services.serviceLogger import Logger
 
 from settings.settingBot import debug
 
@@ -13,8 +13,7 @@ def inviteShieldUpdate(ctx, enabled):
     requestSettings = (enabled, ctx.guild.id)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][INVITE SHIELD][UPDATE] Updating the invite shield status -> " + str(enabled))
+        Logger.debug("[HANDLER][MODERATOR][INVITE SHIELD][UPDATE] Updating the invite shield status -> " + str(enabled))
 
         serviceDatabase.makeRequest(requestFormat, requestSettings)
 
@@ -31,8 +30,7 @@ def inviteShieldCreate(ctx, enabled):
     requestSettings = (ctx.guild.id, enabled)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][INVITE SHIELD][CREATE] Creating the invite shield status -> " + str(enabled))
+        Logger.debug("[HANDLER][MODERATOR][INVITE SHIELD][CREATE] Creating the invite shield status -> " + str(enabled))
 
         serviceDatabase.makeRequest(requestFormat, requestSettings)
 
@@ -50,8 +48,7 @@ def inviteShieldCheck(ctx):
     requestSettings = (ctx.guild.id,)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][INVITE SHIELD][CHECK] Checking if the server ID is in the database -> " + str(ctx.guild.id))
+        Logger.debug("[HANDLER][MODERATOR][INVITE SHIELD][CHECK] Checking if the server ID is in the database -> " + str(ctx.guild.id))
 
         result = serviceDatabase.getInfoRequest(requestFormat, requestSettings)
 

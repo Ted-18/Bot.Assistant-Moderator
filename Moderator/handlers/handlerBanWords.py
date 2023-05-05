@@ -1,5 +1,5 @@
 import services.serviceDatabase as serviceDatabase      
-from services.serviceLogger import consoleLogger as Logger
+from services.serviceLogger import Logger
 
 from settings.settingBot import debug
 
@@ -13,8 +13,7 @@ def isWordInList(ctx, word):
     requestSettings = (ctx.guild.id, word)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][BAN WORDS][CHECK] Checking if the word is in the ban words list -> " + str(word))
+        Logger.debug("[HANDLER][MODERATOR][BAN WORDS][CHECK] Checking if the word is in the ban words list -> " + str(word))
 
         result = serviceDatabase.getInfoRequest(requestFormat, requestSettings)
 
@@ -37,8 +36,7 @@ def getBanWords(ctx):
     requestSettings = (ctx.guild.id,)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][BAN WORDS][GET] Getting all the words in the database for the server -> " + str(ctx.guild.id))
+        Logger.debug("[HANDLER][MODERATOR][BAN WORDS][GET] Getting all the words in the database for the server -> " + str(ctx.guild.id))
 
         result = serviceDatabase.getInfoRequest(requestFormat, requestSettings)
 
@@ -58,8 +56,7 @@ def getBanWordsAutoComplete(ctx):
     requestSettings = (ctx.interaction.guild_id,)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][BAN WORDS][GET] Getting all the words in the database for the server -> " + str(ctx.interaction.guild_id))
+        Logger.debug("[HANDLER][MODERATOR][BAN WORDS][GET] Getting all the words in the database for the server -> " + str(ctx.interaction.guild_id))
 
         result = serviceDatabase.getInfoRequest(requestFormat, requestSettings)
 
@@ -78,8 +75,7 @@ def banWordsAdd(ctx, word):
     requestSettings = (ctx.guild.id, word)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][BAN WORDS][ADD] Adding a word to the ban words list -> " + str(word))
+        Logger.debug("[HANDLER][MODERATOR][BAN WORDS][ADD] Adding a word to the ban words list -> " + str(word))
 
         serviceDatabase.makeRequest(requestFormat, requestSettings)
 
@@ -96,8 +92,7 @@ def banWordsRemove(ctx, word):
     requestSettings = (ctx.guild.id, word)
 
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][MODERATOR][BAN WORDS][REMOVE] Removing a word from the ban words list -> " + str(word))
+        Logger.debug("[HANDLER][MODERATOR][BAN WORDS][REMOVE] Removing a word from the ban words list -> " + str(word))
 
         serviceDatabase.makeRequest(requestFormat, requestSettings)
 
